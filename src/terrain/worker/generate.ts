@@ -14,7 +14,9 @@ enum BlockType {
   diamond = 8,
   quartz = 9,
   glass = 10,
-  bedrock = 11
+  bedrock = 11,
+  max = 11,
+  ruby = 11
 }
 
 const matrix = new THREE.Matrix4()

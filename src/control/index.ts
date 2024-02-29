@@ -89,8 +89,8 @@ export default class Control {
     BlockType.diamond,
     BlockType.quartz,
     BlockType.glass,
-    BlockType.grass,
-    BlockType.grass,
+    BlockType.max,
+    BlockType.ruby,
     BlockType.grass
   ]
   holdingIndex = 0
@@ -413,6 +413,7 @@ export default class Control {
               normal.y + position.y,
               normal.z + position.z
             )
+
             this.terrain.blocks[this.holdingBlock].setMatrixAt(
               this.terrain.getCount(this.holdingBlock),
               matrix
@@ -423,8 +424,7 @@ export default class Control {
             this.audio.playSound(this.holdingBlock)
 
             // update
-            this.terrain.blocks[this.holdingBlock].instanceMatrix.needsUpdate =
-              true
+            this.terrain.blocks[this.holdingBlock].instanceMatrix.needsUpdate = true
 
             // add to custom blocks
             this.terrain.customBlocks.push(
@@ -462,7 +462,6 @@ export default class Control {
       return
     }
     this.holdingIndex = parseInt(e.key) - 1
-
     this.holdingBlock = this.holdingBlocks[this.holdingIndex] ?? BlockType.grass
   }
 

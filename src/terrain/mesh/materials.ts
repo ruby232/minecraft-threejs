@@ -15,6 +15,8 @@ import diamond from '../../static/textures/block/diamond_block.png'
 import quartz from '../../static/textures/block/quartz_block_side.png'
 import glass from '../../static/textures/block/glass.png'
 import bedrock from '../../static/textures/block/bedrock.png'
+import max from '../../static/textures/block/max_block.png'
+import ruby from '../../static/textures/block/ruby_block.png'
 
 export enum MaterialType {
   grass = 'grass',
@@ -29,7 +31,9 @@ export enum MaterialType {
   diamond = 'diamond',
   quartz = 'quartz',
   glass = 'glass',
-  bedrock = 'bedrock'
+  bedrock = 'bedrock',
+  max = 'max',
+  ruby = 'ruby'
 }
 let loader = new THREE.TextureLoader()
 
@@ -50,6 +54,8 @@ const diamondMaterial = loader.load(diamond)
 const quartzMaterial = loader.load(quartz)
 const glassMaterial = loader.load(glass)
 const bedrockMaterial = loader.load(bedrock)
+const maxMaterial = loader.load(max)
+const rubyMaterial = loader.load(ruby)
 
 // pixelate texture
 grassTopMaterial.magFilter = THREE.NearestFilter
@@ -68,6 +74,8 @@ diamondMaterial.magFilter = THREE.NearestFilter
 quartzMaterial.magFilter = THREE.NearestFilter
 glassMaterial.magFilter = THREE.NearestFilter
 bedrockMaterial.magFilter = THREE.NearestFilter
+maxMaterial.magFilter = THREE.NearestFilter
+rubyMaterial.magFilter = THREE.NearestFilter
 
 export default class Materials {
   materials = {
@@ -110,7 +118,9 @@ export default class Materials {
       map: glassMaterial,
       transparent: true
     }),
-    bedrock: new THREE.MeshStandardMaterial({ map: bedrockMaterial })
+    bedrock: new THREE.MeshStandardMaterial({ map: bedrockMaterial }),
+    max: new THREE.MeshStandardMaterial({ map: maxMaterial }),
+    ruby: new THREE.MeshStandardMaterial({ map: rubyMaterial })
   }
 
   get = (

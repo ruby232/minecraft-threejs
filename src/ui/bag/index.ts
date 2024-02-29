@@ -5,6 +5,8 @@ import wood from '../../static/block-icon/wood.png'
 import diamond from '../../static/block-icon/diamond.png'
 import quartz from '../../static/block-icon/quartz.png'
 import glass from '../../static/block-icon/glass.png'
+import max from '../../static/block-icon/max.png'
+import ruby from '../../static/block-icon/ruby.png'
 import { isMobile } from '../../utils'
 
 export default class Bag {
@@ -54,7 +56,7 @@ export default class Bag {
   }
   wheelGap = false
   current = 0
-  icon = [grass, stone, tree, wood, diamond, quartz, glass]
+  icon = [grass, stone, tree, wood, diamond, quartz, glass, max, ruby]
   iconIndex = 0
   y = 0
 
@@ -69,9 +71,13 @@ export default class Bag {
       img.className = 'icon'
       img.alt = 'block'
       img.src = this.icon[this.iconIndex++]
+      let number = document.createElement('span')
+      number.innerHTML = this.iconIndex.toString()
+      number.className = 'icon-title'
+      item.appendChild(number)
       item.appendChild(img)
-    }
 
+    }
     return item
   })
 }
